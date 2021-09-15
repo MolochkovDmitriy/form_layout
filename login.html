@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style-login.css">
+    <title>Вход в Pressfeed</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main-rectangle">
+            <div class="main-text">
+                <h2>Вход в Pressfeed</h2>
+            </div>
+            <form id="form">
+                <input type="email" class="input-login" id="email" placeholder="Логин (ваша почта)">
+                <input type="password" class="input-password" id="password" placeholder="Пароль">
+                <div class="remember-block">
+                    <label for="remember">
+                        <h5>Запомнить меня</h5>
+                        <input type="checkbox" class="custom-checkbox-remember" id="remember" name="remember" checked>
+                    </label>
+                </div>
+                <button type="submit" class="login-btn">
+                    <h4>Войти</h4>
+                </button>
+                <div class="bottom-links">
+                    <div class="remember-password-link">
+                        <a href="reset_password.html">
+                            <h5>Забыли пароль?</h5>
+                        </a>
+                    </div>
+                    <div class="registration-link">
+                        <a href="journalist-expert.html">
+                            <h5>Регистрация</h5>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+
+</html>
