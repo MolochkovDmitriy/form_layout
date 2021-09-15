@@ -21,7 +21,7 @@ const error = document.getElementById('error-text');
 
 
 backBtnLink.addEventListener('click', function () {
-  window.location.href = "journalist-expert.html";
+  window.location.href = "index.html";
 });
 
 function validatePhone(telephone) {
