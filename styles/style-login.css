@@ -1,90 +1,59 @@
 * {
-    box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
     font-family: 'Roboto', sans-serif;
 }
 
-body {
-    height: 100%;
-    background-image: linear-gradient(to right, #4054F9 50%, #E5E5E5 50%);
-}
-
 .container {
-    display: flex;
     max-width: 600px;
     margin: auto;
-    align-items: center;
-    justify-content: center;
     padding: 86px 24px;
-    width: 100%;
-    height: 100%;
 }
 
-.main-rectangle {
-    position: relative;
+.main-block {
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     max-width: 418px;
-    
     background-color: #FFFFFF;
     border-radius: 8px;
     box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
 }
 
-.main-text {
+.title {
     text-align: center;
     width: 100%;
     margin-top: 56px;
-}
-
-h2 {
-    font-style: normal;
-    font-weight: 500;
-    size: 24px;
-    line-height: 32px;
 }
 
 form {
     padding: 36px 60px 46px;
 }
 
-input {
-    padding: 7px 11px;
-    border: 1px solid;
-    border-radius: 4px;
-    border-color: #D9D9D9;
-    width: 100%;
-    height: 40px;
+.password-input-block {
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    padding-right: 10px;  
+    padding: 0 10px 0;
 }
 
-::placeholder {
-    font-style: normal;
+.input-password {
+    width: calc(100% - 20px);
+    border: none;
+    outline: none;
+    padding: 0;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+}
+
+.input-password::placeholder {
     color: #BFBFBF;
-}
-
-.input-password {
-    margin-top: 14px;
-}
-
-.input-password {
-    background-image: url("data:image/svg+xml,%3Csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.00016 5.16671C7.53993 5.16671 7.16683 5.5398 7.16683 6.00004C7.16683 6.46028 7.53993 6.83337 8.00016 6.83337C8.4604 6.83337 8.8335 6.46028 8.8335 6.00004C8.8335 5.5398 8.4604 5.16671 8.00016 5.16671ZM6.16683 6.00004C6.16683 4.98752 6.98764 4.16671 8.00016 4.16671C9.01268 4.16671 9.8335 4.98752 9.8335 6.00004C9.8335 7.01256 9.01268 7.83337 8.00016 7.83337C6.98764 7.83337 6.16683 7.01256 6.16683 6.00004Z' fill='%238C8C8C'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.91236 6.00004C3.60755 8.84516 5.64103 10.1667 8.00016 10.1667C10.3593 10.1667 12.3928 8.84516 14.088 6.00004C12.3928 3.15492 10.3593 1.83337 8.00016 1.83337C5.64103 1.83337 3.60755 3.15492 1.91236 6.00004ZM0.89938 5.75196C2.7316 2.54575 5.09349 0.833374 8.00016 0.833374C10.9068 0.833374 13.2687 2.54575 15.1009 5.75196C15.1888 5.90568 15.1888 6.0944 15.1009 6.24812C13.2687 9.45433 10.9068 11.1667 8.00016 11.1667C5.09349 11.1667 2.7316 9.45433 0.89938 6.24812C0.811535 6.0944 0.811535 5.90568 0.89938 5.75196Z' fill='%238C8C8C'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: center right 15px;
-}
-
-.remember-block {
-    width: 100%;
-    margin-top: 24px;
-    height: 22px;
 }
 
 label[for=remember] {
     position: absolute;
     margin-left: 24px;
+    margin-top: 24px;
 }
 
 .custom-checkbox-remember {
@@ -98,33 +67,15 @@ label[for=remember] {
 }
 
 h5 {
-    font-style: normal;
     font-weight: 400;
-    size: 14px;
+    font-size: 14px;
     line-height: 22px;
     color: #595959;
 }
 
 .login-btn {
-    padding: 8px 126px;
-    background-color: #4054F9;
-    border-radius: 4px;
-    border: #4054F9;
-    color: #FFFFFF;
     width: 100%;
-    height: 40px;
-    margin-top: 14px;
-}
-
-.login-btn:hover {
-    cursor: pointer;
-}
-
-h4 {
-    font-style: normal;
-    font-weight: 400;
-    size: 16px;
-    line-height: 24px;
+    margin-top: 62px;
 }
 
 .bottom-links {
@@ -134,26 +85,13 @@ h4 {
 }
 
 .remember-password-link {
-   width: 50%;
-   text-align: left;
+    width: 50%;
+    text-align: left;
 }
 
 .registration-link {
-  width: 50%;
-  text-align: right;
-}
-
-a {
-    text-decoration: none;
-}
-
-a:hover {
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-a h5 {
-    color: #4054F9;
+    width: 50%;
+    text-align: right;
 }
 
 @media (max-width: 430px) and (min-width: 302px) {
@@ -167,7 +105,7 @@ a h5 {
         padding: 0px 0px;
     }
     
-    .main-rectangle { 
+    .main-block { 
         background-color: #E5E5E5;
         border-radius: 0px;
         box-shadow: none;
@@ -175,7 +113,7 @@ a h5 {
         height: 100%;
     }
 
-    .main-text {
+    .title {
         margin-top: 40px;
         margin-bottom: 40px;
     }
@@ -186,21 +124,19 @@ a h5 {
         background-color: #FFFFFF;
     }
 
-    input {
+    .input.input_lg.input_normal {
         padding: 4px 11px;
-    }
-
-    ::placeholder {
+        height: 32px;
         font-size: 14px;
         line-height: 22px;
     }
 
-    .remember-block {
+    label[for=remember] {
         margin-top: 20px;
     }
 
     .login-btn {
-        margin-top: 20px;
+        margin-top: 62px;
     }
 
     .bottom-links {

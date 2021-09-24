@@ -8,81 +8,69 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style-common.css">
     <link rel="stylesheet" href="styles/style-expert.css">
     <title>Эксперт</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="main-rectangle">
-            <div class="left-big-block">
-                <div class="main-title">
-                    <h2>Зарегистрируйтесь на Pressfeed<br> и получите книгу в подарок</h2>
+        <div class="main-block">
+            <h1 class="title">Зарегистрируйтесь на Pressfeed<br> и получите книгу в подарок</h1>
+            <form id="form">
+                <input type="email" class="input input_md input_normal input-email" id="email"
+                    placeholder="E-mail (ваш логин на сайте)">
+                <div class="input input_md input_normal password-input-block" id="password-block">
+                    <input type="password" class="input input-password" id="password"
+                        placeholder="Пароль">
+                    <button class="password-show-btn" id="password-visible-btn"></button>
                 </div>
-                <form id="form">
-                    <div class="email-input-block">
-                        <input type="email" class="input-email" id="email" placeholder="E-mail (ваш логин на сайте)">
-                    </div>
-                    <div class="password-input-block">
-                        <input type="password" class="input-password" id="password" placeholder="Пароль">
-                    </div>
-                    <div class="first-name-input-block">
-                        <input type="text" class="input-firstname" id="first-name" placeholder="Имя">
-                    </div>
-                    <div class="last-name-input-block">
-                        <input type="text" class="input-lastname" id="last-name" placeholder="Фамилия">
-                    </div>
-                    <hr>
-                    <div class="company-input-block">
-                        <input type="text" class="input-company" id="company" placeholder="Название вашей компании">
-                    </div>
-                    <div class="position-input-block">
-                        <input type="text" class="input-position" id="position" placeholder="Ваша должность">
-                    </div>
-                    <hr>
-                    <div class="telephone-accept-block">
-                        <div class="telephone-input-block">
-                            <input type="text" class="input-telephone" id="telephone" placeholder="Телефон">
-                        </div>
-                        <div class="accept-btn-code-block">
-                            <button class="accept-btn disabled" id="accept-btn">
-                                Подтвердить
-                            </button>
-
-                            <input type="text" class="input-code" id="code" placeholder="Код из SMS">
-                        </div>
-                    </div>
-                    <div class="user-agreement-block">
-                        <label for="agreement">
-                            <h5>Я принимаю «Пользовательское соглашение» и не против обработки моих данных</h5>
-                            <input type="checkbox" class="custom-checkbox-agreement" id="agreement" name="agreement">
-                        </label>
-                    </div>
-                    <div class="error-block" id="error-block">
-                        <span class="error-text" id="error-text">
-
+                <input type="text" class="input input_md input_normal input-firstname" id="first-name"
+                    placeholder="Имя">
+                <input type="text" class="input input_md input_normal input-lastname" id="last-name"
+                    placeholder="Фамилия">
+                <hr>
+                <input type="text" class="input input_md input_normal input-company" id="company"
+                    placeholder="Название вашей компании">
+                <input type="text" class="input input_md input_normal input-position" id="position"
+                    placeholder="Ваша должность">
+                <hr>
+                <input type="text" class="input input_md input_normal input-telephone" id="telephone"
+                    placeholder="Телефон">
+                <div class="accept-btn-code-block">
+                    <button class="btn btn_md btn_primary" id="accept-btn" disabled>
+                        Подтвердить
+                    </button>
+                    <input type="text" class="input input_md input_normal input-code" id="code"
+                        placeholder="Код из SMS">
+                </div>
+                <div class="user-agreement-block">
+                    <label for="agreement">
+                        <h5>Я принимаю «Пользовательское соглашение» и не против обработки моих данных</h5>
+                        <input type="checkbox" class="custom-checkbox-agreement" id="agreement" name="agreement">
+                    </label>
+                </div>
+                <div class="error-block" id="error-block">
+                    <span class="error-text" id="error-text">
+                    </span>
+                </div>
+                <div class="bottom-block">
+                    <button class="btn btn_lg btn_cancel" id="back-btn">
+                        <span class="back-btn-text">
+                            Назад
                         </span>
-                    </div>
-                    <div class="bottom-block">
-                        <button class="back-btn" id="back-btn">
-                            <h4>
-                                <span class="back-btn-text">
-                                    Назад
-                                </span>
-                            </h4>
-                        </button>
-                        <button type="submit" class="registration-btn">
-                            <h4>Зарегистрироваться</h4>
-                        </button>
-                        <div class="gift-block">
-                            <div class="gift-text-block">
-                                <h5>и получить <span class="color-text-gift">подарок</span></h5>
-                            </div>
-                            <img src="pictures/arrow.png" class="img-arrow">
+                    </button>
+                    <button type="submit" class="btn btn_lg btn_primary">
+                        <h4>Зарегистрироваться</h4>
+                    </button>
+                    <div class="gift-block">
+                        <div class="gift-text-block">
+                            <h5>и получить <span class="color-text-gift">подарок</span></h5>
                         </div>
+                        <img src="images/arrow.png" class="img-arrow">
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
     <script src="expert.js"></script>

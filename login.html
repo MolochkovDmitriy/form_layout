@@ -8,37 +8,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style-common.css">
     <link rel="stylesheet" href="styles/style-login.css">
     <title>Вход в Pressfeed</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="main-rectangle">
-            <div class="main-text">
-                <h2>Вход в Pressfeed</h2>
-            </div>
+        <div class="main-block">
+            <h1 class="title">Вход в Pressfeed</h1>
             <form id="form">
-                <input type="email" class="input-login" id="email" placeholder="Логин (ваша почта)">
-                <input type="password" class="input-password" id="password" placeholder="Пароль">
-                <div class="remember-block">
-                    <label for="remember">
-                        <h5>Запомнить меня</h5>
-                        <input type="checkbox" class="custom-checkbox-remember" id="remember" name="remember" checked>
-                    </label>
+                <input type="email" class="input input_lg input_normal input-email" id="email" placeholder="Логин (ваша почта)">
+                <div class="input input_lg input_normal password-input-block" id="password-block">
+                    <input type="password" class="input input-password" id="password" placeholder="Пароль">
+                    <button class="password-show-btn" id="password-visible-btn"></button>
                 </div>
-                <button type="submit" class="login-btn">
-                    <h4>Войти</h4>
+                <label for="remember">
+                    <h5>Запомнить меня</h5>
+                    <input type="checkbox" class="custom-checkbox-remember" id="remember" name="remember" checked>
+                </label>
+                <button type="submit" class="btn btn_lg btn_primary login-btn">
+                    Войти
                 </button>
                 <div class="bottom-links">
                     <div class="remember-password-link">
-                        <a href="reset_password.html">
-                            <h5>Забыли пароль?</h5>
+                        <a class="link-btn" href="reset_password.html">
+                            Забыли пароль?
                         </a>
                     </div>
                     <div class="registration-link">
-                        <a href="index.html">
-                            <h5>Регистрация</h5>
+                        <a class="link-btn" href="index.html">
+                            Регистрация
                         </a>
                     </div>
                 </div>

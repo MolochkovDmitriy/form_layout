@@ -18,9 +18,26 @@ const inputCode = document.getElementById('code');
 const checkboxAgreement = document.getElementById('agreement');
 const errorBlock = document.getElementById('error-block');
 const error = document.getElementById('error-text');
+const btnPasswordVisible = document.getElementById('password-visible-btn');
+const blockPassword = document.getElementById('password-block');
 
+let flagTelephone = false;
 
-backBtnLink.addEventListener('click', function () {
+btnPasswordVisible.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (btnPasswordVisible.classList.contains('password-show-btn')) {
+    btnPasswordVisible.classList.remove('password-show-btn');
+    btnPasswordVisible.classList.add('password-hide-btn');
+    inputPassword.type = 'text';
+  } else {
+    btnPasswordVisible.classList.remove('password-hide-btn');
+    btnPasswordVisible.classList.add('password-show-btn');
+    inputPassword.type = 'password';
+  }
+});
+
+backBtnLink.addEventListener('click', function (e) {
+  e.preventDefault();
   window.location.href = "index.html";
 });
 
@@ -36,56 +53,82 @@ function validateEmail(email) {
 
 btnAccept.addEventListener('click', function (e) {
   e.preventDefault();
-  if (!(btnAccept.classList.contains('disabled'))) {
-    btnAccept.classList.add('disabled');
-    inputTelephone.setAttribute('readonly', 1);
+  if (!(btnAccept.getAttribute('disabled'))) {
+		btnAccept.setAttribute('disabled', 'disabled');
+    if (inputTelephone.classList.contains('input_error')) {
+      inputTelephone.classList.remove('input_error');
+      inputTelephone.classList.add('input_normal');
+      error.innerHTML = '';
+      errorBlock.style.visibility = 'hidden';
+    }
+		inputTelephone.setAttribute('readonly', 1);
+		flagTelephone = true;
   }
 });
 
 
 inputTelephone.oninput = function () {
   if (validatePhone(inputTelephone.value)) {
-    btnAccept.classList.remove('disabled')
+    btnAccept.removeAttribute('disabled');
   } else {
-    btnAccept.classList.add('disabled');
+    btnAccept.setAttribute('disabled', 'disabled');
   }
 }
 
-form.onsubmit = function() {
+form.onsubmit = function () {
   let formElement = [
-    { element: inputEmail.value, error: 'Введите e-mail' },
-    { element: inputPassword.value, error: 'Введите пароль' },
-    { element: inputFirstName.value, error: 'Введите имя' },
-    { element: inputLastName.value, error: 'Введите фамилию' },
-    { element: inputMassMedia.value, error: 'Выберите название Вашего СМИ' },
-    { element: inputPosition.value, error: 'Введите Вашу должность' },
+    { element: inputEmail, error: 'Введите e-mail' },
+    { element: inputPassword, error: 'Введите пароль' },
+    { element: inputFirstName, error: 'Введите имя' },
+    { element: inputLastName, error: 'Введите фамилию' },
+    { element: inputMassMedia, error: 'Выберите название Вашего СМИ' },
+    { element: inputPosition, error: 'Введите Вашу должность' },
     { element: checkboxVerification.checked, error: 'Не проставлена галочка "Верифицировать меня"' },
-    { element: inputSite.value, error: 'Введите сайт СМИ' },
-    { element: inputCity.value, error: 'Выберите город' },
-    { element: inputTelephone.value, error: 'Введите телефон' },
-    { element: inputCode.value, error: 'Введите код из СМС' },
+    { element: inputSite, error: 'Введите сайт СМИ' },
+    { element: inputCity, error: 'Выберите город' },
+    { element: inputTelephone, error: 'Введите телефон' },
+    { element: inputCode, error: 'Введите код из СМС' },
     { element: checkboxAgreement.checked, error: 'Не проставлена галочка "Пользовательского соглашения"' },
   ]
+
   let flagValidate = true;
   for (let i = 0; i < formElement.length; i++) {
-    if (formElement[i].element === '') {
+    if ((i === 1) && blockPassword.classList.contains('input_error')) {
+      blockPassword.classList.remove('input_error');
+      blockPassword.classList.add('input_normal');
+    }
+    if ((i !== 1) && (i !== 4) && (i !== 6) && (i !== 8) && (i !== 11) && (document.getElementById(formElement[i].element.id).classList.contains('input_error'))) {
+      document.getElementById(formElement[i].element.id).classList.remove('input_error');
+      document.getElementById(formElement[i].element.id).classList.add('input_normal');
+    }
+    if (formElement[i].element.value === '') {
       error.innerHTML = '';
       error.innerHTML = formElement[i].error.toString();
-      errorBlock.style.display = 'block';
-      flagValidate = false;
-      return false;
+      errorBlock.style.visibility = 'visible';
+      if (i === 1) {
+        blockPassword.classList.remove('input_normal');
+        blockPassword.classList.add('input_error');
+        flagValidate = false;
+        return false;
+      }
+      if ((i !== 1) && (i !== 4) && (i !== 6) && (i !== 8) && (i !== 11)) {
+        document.getElementById(formElement[i].element.id).classList.remove('input_normal');
+        document.getElementById(formElement[i].element.id).classList.add('input_error');
+        flagValidate = false;
+        return false;
+      }
     } else {
-      if ((i === 4 || i === 8) && (formElement[i].element === 'Название вашего СМИ' || formElement[i].element === 'Город')) {
+      if ((i === 4 || i === 8) && (formElement[i].element.value === 'Название вашего СМИ' || formElement[i].element.value === 'Город')) {
         error.innerHTML = '';
         error.innerHTML = formElement[i].error.toString();
-        errorBlock.style.display = 'block';
+        errorBlock.style.visibility = 'visible';
         flagValidate = false;
         return false;
       } else {
         if ((i === 6 || i === 11) && (formElement[i].element === false || formElement[i].element === false)) {
           error.innerHTML = '';
           error.innerHTML = formElement[i].error.toString();
-          errorBlock.style.display = 'block';
+          errorBlock.style.visibility = 'visible';
           flagValidate = false;
           return false;
         }
@@ -95,12 +138,26 @@ form.onsubmit = function() {
   if (flagValidate) {
     if (validateEmail(inputEmail.value)) {
       error.innerHTML = '';
-      errorBlock.style.display = 'none';
-      return true;
+      errorBlock.style.visibility = 'hidden';
+      if (flagTelephone) {
+        error.innerHTML = '';
+        errorBlock.style.visibility = 'hidden';
+        return true;
+      } else {
+        error.innerHTML = '';
+        error.innerHTML = 'Введён некорректный номер телефона';
+        errorBlock.style.visibility = 'visible';
+        inputTelephone.classList.remove('input_normal');
+        inputTelephone.classList.add('input_error');
+        flagValidate = false;
+        return false;
+      }
     } else {
       error.innerHTML = '';
-      error.innerHTML = 'Введён некорректный e-mail'
-      errorBlock.style.display = 'block';
+      error.innerHTML = 'Введён некорректный email';
+      errorBlock.style.visibility = 'visible';
+      inputEmail.classList.remove('input_normal');
+      inputEmail.classList.add('input_error');
       flagValidate = false;
       return false;
     }
